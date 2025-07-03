@@ -7,8 +7,14 @@ import os
 app = FastAPI()
 LOG_FILE = "output_log.json"
 
+@app.get("/")
+def root():
+    return {"message": "✅ Saathi Task 2 GenAI Parser is running!"}
+
 class QueryRequest(BaseModel):
     query: str
+
+# (rest of the existing code continues)
 
 # Save every query + response to output_log.json
 def append_to_log(query: str, result: dict):
